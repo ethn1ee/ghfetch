@@ -14,7 +14,7 @@ import (
 
 const (
 	endpoint  = "https://api.github.com/graphql"
-	yearRange = 3
+	yearRange = 2
 )
 
 var charMap = map[string]rune{
