@@ -1,6 +1,6 @@
 loop {
   clear;
   source env.nu;
-  ./ghcg ethn1ee;
+  ./ghfetch ethn1ee;
   sleep 1hr;
 }
