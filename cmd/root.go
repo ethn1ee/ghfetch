@@ -12,7 +12,8 @@ import (
 )
 
 var (
-	years int
+	years   int
+	charSet string
 )
 
 var rootCmd = &cobra.Command{
@@ -49,7 +50,7 @@ var rootCmd = &cobra.Command{
 			cobra.CheckErr(fmt.Errorf("failed to get contributions: %w", err))
 		}
 
-		draw.Contributions(graph, []rune{' ', '⋅', '+', '=', '#'})
+		draw.Contributions(graph, []rune(charSet))
 
 		fmt.Println()
 		fmt.Println("Name:", user.Name)
@@ -72,4 +73,5 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().IntVarP(&years, "years", "y", 1, "length of contribution graph in years")
+	rootCmd.Flags().StringVar(&charSet, "charSet", " ·+=#", "contribution graph character set; must be length of 5")
 }
