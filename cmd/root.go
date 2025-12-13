@@ -24,7 +24,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		username := os.Args[1]
-		token, ok := os.LookupEnv("GITHUB_TOKEN")
+		token, ok := os.LookupEnv("GHFETCH_TOKEN")
 		if !ok {
 			cobra.CheckErr("environment variable GITHUB_TOKEN is required")
 		}
@@ -39,7 +39,6 @@ var rootCmd = &cobra.Command{
 
 		end := time.Now()
 		start := end.Add(-time.Hour * time.Duration(int(years*24*365)))
-
 		if user.JoinedAt.After(start) {
 			start = user.JoinedAt
 		}

@@ -16,10 +16,10 @@ var (
 	charSet  = []rune(" ·+=#")
 	colorSet = []func(...any) string{
 		fmt.Sprint,
-		color.New(color.FgBlue).Sprint,
-		color.New(color.FgMagenta).Sprint,
-		color.New(color.FgCyan).Sprint,
-		color.New(color.FgHiCyan).Sprint,
+		color.New(color.BgBlack).Sprint,
+		color.New(color.BgGreen).Sprint,
+		color.New(color.BgBlue).Sprint,
+		color.New(color.BgWhite).Sprint,
 	}
 )
 
@@ -38,7 +38,7 @@ func contributionsHorizontal(contributions [][]int) string {
 	buf := new(bytes.Buffer)
 	for _, r := range contributions {
 		for _, c := range r {
-			buf.WriteString(colorSet[c](string(charSet[c])))
+			buf.WriteString(colorSet[c](" "))
 		}
 		buf.WriteString("\n")
 	}
