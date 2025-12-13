@@ -12,8 +12,7 @@ import (
 )
 
 var (
-	years   int
-	charSet string
+	years float32
 )
 
 var rootCmd = &cobra.Command{
@@ -39,26 +38,18 @@ var rootCmd = &cobra.Command{
 		}
 
 		end := time.Now()
-		start := end.Add(-time.Hour * 24 * 365 * time.Duration(years))
+		start := end.Add(-time.Hour * time.Duration(int(years*24*365)))
 
 		if user.JoinedAt.After(start) {
 			start = user.JoinedAt
 		}
 
-		graph, _, err := client.GetContributions(ctx, start, end)
+		contributions, _, err := client.GetContributions(ctx, start, end)
 		if err != nil {
 			cobra.CheckErr(fmt.Errorf("failed to get contributions: %w", err))
 		}
 
-		draw.Contributions(graph, []rune(charSet))
-
-		fmt.Println()
-		fmt.Println("Name:", user.Name)
-		fmt.Println("Username:", user.Username)
-		fmt.Println("Bio:", user.Bio)
-		fmt.Println("Followers:", user.Followers)
-		fmt.Println("Following:", user.Following)
-		fmt.Println("Joined at:", user.JoinedAt)
+		draw.Print(user, contributions)
 	},
 }
 
@@ -72,6 +63,5 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().IntVarP(&years, "years", "y", 1, "length of contribution graph in years")
-	rootCmd.Flags().StringVar(&charSet, "charSet", " ·+=#", "contribution graph character set; must be length of 5")
+	rootCmd.Flags().Float32VarP(&years, "years", "y", 0.5, "length of contribution graph in years")
 }
