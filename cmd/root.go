@@ -26,7 +26,7 @@ var rootCmd = &cobra.Command{
 		username := os.Args[1]
 		token, ok := os.LookupEnv("GHFETCH_TOKEN")
 		if !ok {
-			cobra.CheckErr("environment variable GITHUB_TOKEN is required")
+			cobra.CheckErr("environment variable GHFETCH_TOKEN is required")
 		}
 
 		ctx := context.Background()
