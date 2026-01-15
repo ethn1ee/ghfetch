@@ -9,7 +9,7 @@ The graphic on the left is an ASCII version of the [contribution graph](https://
 ## Installation
 
 ```sh
-go install github.com/ethn1ee/ghfetch
+go install github.com/thdxg/ghfetch
 ```
 
 This program uses the GitHub GraphQL API, which requires a GitHub access token. See the next session for how to create one.

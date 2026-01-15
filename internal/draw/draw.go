@@ -3,7 +3,7 @@ package draw
 import (
 	"os"
 
-	"github.com/ethn1ee/ghfetch/internal/github"
+	"github.com/thdxg/ghfetch/internal/github"
 	"github.com/olekukonko/tablewriter"
 	"github.com/olekukonko/tablewriter/renderer"
 	"github.com/olekukonko/tablewriter/tw"

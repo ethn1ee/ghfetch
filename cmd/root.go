@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/ethn1ee/ghfetch/internal/draw"
-	"github.com/ethn1ee/ghfetch/internal/github"
+	"github.com/thdxg/ghfetch/internal/draw"
+	"github.com/thdxg/ghfetch/internal/github"
 	"github.com/spf13/cobra"
 )
 

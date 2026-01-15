@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ethn1ee/ghfetch/cmd"
+import "github.com/thdxg/ghfetch/cmd"
 
 func main() {
 	cmd.Execute()

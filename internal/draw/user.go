@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethn1ee/ghfetch/internal/github"
+	"github.com/thdxg/ghfetch/internal/github"
 	"github.com/fatih/color"
 )
 

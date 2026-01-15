@@ -1,4 +1,4 @@
-module github.com/ethn1ee/ghfetch
+module github.com/thdxg/ghfetch
 
 go 1.25.0
 
